@@ -1,4 +1,5 @@
 import React from 'react';
+import CommandCardRenderer from './CommandCardImageRenderer/CommandCardRenderer';
 
 class ImageRenderer extends React.Component{
   constructor(props){
@@ -6,7 +7,12 @@ class ImageRenderer extends React.Component{
     console.log(props);
   }
   render(){
-    return <div>IMAGE RENDERER: {this.props.cardType}</div>
+
+    if(this.props.cardType === 'COMMAND'){
+      return <CommandCardRenderer/>
+    } else {
+      return <div>IMAGE RENDERER: {this.props.cardType}</div>
+    }
   }
 }
 
