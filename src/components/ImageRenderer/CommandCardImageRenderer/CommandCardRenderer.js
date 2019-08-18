@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { saveCommandCardConfig } from "../../../redux/actions/commandCardActions";
+import { Col } from 'react-bootstrap';
 
 class CommandCardRenderer extends React.Component{
   constructor(props){
@@ -11,7 +12,7 @@ class CommandCardRenderer extends React.Component{
     console.log(nextProps.config);
   }
   render(){
-    return <div col-xs-4>Command Card Renderer</div>
+    return <Col xs="12">Command Card Renderer</Col>
   }
 }
 

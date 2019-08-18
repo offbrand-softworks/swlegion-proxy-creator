@@ -7,7 +7,7 @@ class Menu extends React.Component {
     return(
       <Burger>
         <a id="home" className="menu-item" href="/">Home</a>
-        <a id="command" className="menu-item" href="/command">Command Cards</a>
+        <a id="proxy-editor" className="menu-item" href="/proxy-editor">Proxy Editor</a>
       </Burger>
     );
   }
