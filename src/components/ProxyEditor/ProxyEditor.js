@@ -3,7 +3,14 @@ import '../App/App.css';
 import './ProxyEditor.css';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import Dropdown from 'react-bootstrap/Dropdown';
+import ImageRenderer from '../ImageRenderer/ImageRenderer';
+
 class ProxyEditor extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {cardType: ''}
+  }
+
   render(){
     return(
       <div className="App-content">
@@ -15,11 +22,12 @@ class ProxyEditor extends React.Component {
             <div className="col-xs-4 card-renderer-container">
               <div className="row card-type-dropdown-row">
                 <DropdownButton title="Proxy Type" >
-                  <Dropdown.Item onSelect={this.onCardTypeSelect}>Command</Dropdown.Item>
+                  <Dropdown.Item onSelect={() => this.selectCommandCard()}>Command</Dropdown.Item>
+                  <Dropdown.Item onSelect={() => this.selectCard()}>Other</Dropdown.Item>
                 </DropdownButton>
               </div>
               <div className="row renderer">
-                {/*<ImageRenderer></ImageRenderer>*/}
+                <ImageRenderer cardType={this.state.cardType}/>
               </div>
             </div>
             <div className="col-xs-12 editor-fields">
@@ -33,8 +41,12 @@ class ProxyEditor extends React.Component {
     )
   }
 
-  onCardTypeSelect(){
-    console.log("card type dropdown selected")
+  selectCommandCard(){
+    this.setState({cardType: 'COMMAND'});
+  }
+
+  selectCard(){//TODO: This is placeholder
+    this.setState({cardType: 'OTHER'});
   }
 }
 
