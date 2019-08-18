@@ -3,32 +3,38 @@ import './App.css';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Menu from '../Menu/Menu.js';
 import Home from '../Home/Home.js';
-import Command from '../Command/Command.js';
+import ProxyEditor from '../ProxyEditor/ProxyEditor.js';
+import { Provider } from 'react-redux';
+import reduxStore from '../../redux/store';
 
-function App() {
+class App extends React.Component {
+  homeComponent() {
     return (
-    <Router>
-      <div className="App">
-        <Menu />
-        <Route exact path="/" component={HomeComponent} />
-        <Route path="/command" component={CommandComponent} />
-        {/* <Route path="/about" component={About} />
-        <Route path="/topics" component={Topics} /> */}
-      </div>
-    </Router>
+      <Home/>
     );
-}
+  }
 
-function HomeComponent() {
-  return(
-    <Home />
-  );
-}
+  proxyEditorComponent() {
+    return (
+      <ProxyEditor/>
+    )
+  }
 
-function CommandComponent() {
-  return(
-    <Command />
-  )
+  render() {
+    return (
+      <Provider store={reduxStore}>
+        <Router>
+          <div className="App">
+            <Menu/>
+            <Route exact path="/" component={this.homeComponent}/>
+            <Route path="/proxy-editor" component={this.proxyEditorComponent}/>
+            {/* <Route path="/about" component={About} />
+        <Route path="/topics" component={Topics} /> */}
+          </div>
+        </Router>
+      </Provider>
+    );
+  }
 }
 
 export default App;
