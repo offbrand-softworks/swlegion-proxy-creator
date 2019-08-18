@@ -1,8 +1,10 @@
 import React from 'react';
+import ImageEditor from '../ImageEditor/ImageEditor'
 import '../App/App.css';
 import './ProxyEditor.css';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import Dropdown from 'react-bootstrap/Dropdown';
+
 class ProxyEditor extends React.Component {
   render(){
     return(
@@ -23,9 +25,7 @@ class ProxyEditor extends React.Component {
               </div>
             </div>
             <div className="col-xs-12 editor-fields">
-                {/*//Conditionally Rendered based off of select dropdown*/}
-                {/*//<CommandEditorFields></CommandEditorFields>*/}
-                {/*//<SomeOtherCardTypeFields></SomeOtherCardTypeFields>*/}
+                <ImageEditor />
             </div>
           </div>
         </div>
