@@ -7,7 +7,7 @@ import ProxyEditor from '../ProxyEditor/ProxyEditor.js';
 
 
 class App extends React.Component {
-  
+
   render() {
     return (
       <Router>
