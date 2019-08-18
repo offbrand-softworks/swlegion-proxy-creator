@@ -1,4 +1,5 @@
 import React from 'react';
+import { Container, Col, Row } from 'react-bootstrap';
 
 class CommandCardRenderer extends React.Component{
   constructor(props){
@@ -6,7 +7,7 @@ class CommandCardRenderer extends React.Component{
   }
 
   render(){
-    return <div col-xs-4>Command Card Renderer</div>
+    return <Col xs="12">Command Card Renderer</Col>
   }
 }
 
