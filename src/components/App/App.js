@@ -3,7 +3,7 @@ import './App.css';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Menu from '../Menu/Menu.js';
 import Home from '../Home/Home.js';
-import Command from '../Command/Command.js';
+import ProxyEditor from '../ProxyEditor/ProxyEditor.js';
 
 function App() {
     return (
@@ -11,7 +11,7 @@ function App() {
       <div className="App">
         <Menu />
         <Route exact path="/" component={HomeComponent} />
-        <Route path="/command" component={CommandComponent} />
+        <Route path="/proxy-editor" component={ProxyEditorComponent} />
         {/* <Route path="/about" component={About} />
         <Route path="/topics" component={Topics} /> */}
       </div>
@@ -25,9 +25,9 @@ function HomeComponent() {
   );
 }
 
-function CommandComponent() {
+function ProxyEditorComponent() {
   return(
-    <Command />
+    <ProxyEditor />
   )
 }
 
