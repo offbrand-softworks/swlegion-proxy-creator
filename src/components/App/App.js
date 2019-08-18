@@ -3,32 +3,36 @@ import './App.css';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Menu from '../Menu/Menu.js';
 import Home from '../Home/Home.js';
-import Command from '../Command/Command.js';
+import ProxyEditor from '../ProxyEditor/ProxyEditor.js';
 
-function App() {
+
+class App extends React.Component {
+
+  render() {
     return (
-    <Router>
-      <div className="App">
-        <Menu />
-        <Route exact path="/" component={HomeComponent} />
-        <Route path="/command" component={CommandComponent} />
-        {/* <Route path="/about" component={About} />
+      <Router>
+        <div className="App">
+          <Menu />
+          <Route exact path="/" component={this.HomeComponent} />
+          <Route path="/proxy-editor" component={this.ProxyEditorComponent} />
+          {/* <Route path="/about" component={About} />
         <Route path="/topics" component={Topics} /> */}
-      </div>
-    </Router>
+        </div>
+      </Router>
     );
-}
+  }
 
-function HomeComponent() {
-  return(
-    <Home />
-  );
-}
+  HomeComponent() {
+    return(
+      <Home />
+    );
+  }
 
-function CommandComponent() {
-  return(
-    <Command />
-  )
+  ProxyEditorComponent() {
+    return(
+      <ProxyEditor />
+    )
+  }
 }
 
 export default App;
