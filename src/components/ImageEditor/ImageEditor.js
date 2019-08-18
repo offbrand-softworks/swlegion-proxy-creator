@@ -3,9 +3,11 @@ import CommandCardEditor from './CommandCardEditor/CommandCardEditor';
 
 class ImageEditor extends React.Component {
   render() {
-    return(
-      <CommandCardEditor />
-    );
+    if(this.props.cardType === 'COMMAND'){
+      return <CommandCardEditor/>
+    } else {
+      return <div>IMAGE EDITOR: {this.props.cardType}</div>
+    }
   }
 }
 

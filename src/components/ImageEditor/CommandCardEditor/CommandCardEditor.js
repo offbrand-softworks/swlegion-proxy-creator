@@ -1,4 +1,5 @@
 import React from 'react';
+import { Col, Row } from 'react-bootstrap'
 import './CommandCardEditor.css';
 
 class CommandCardEditor extends React.Component {
@@ -27,9 +28,9 @@ class CommandCardEditor extends React.Component {
 
   render() {
     return(
-      <div className="col-xs-12">
+      <Col className="col-xs-12">
         <form>
-          <div className="row">
+          <Row>
             <label>
               Commander Card:
               <input
@@ -38,8 +39,8 @@ class CommandCardEditor extends React.Component {
                 checked={this.state.isCommander}
                 onChange={this.handleInputChange} />
             </label>
-          </div>
-          <div className="row">
+          </Row>
+          <Row>
             <label hidden={!this.state.isCommander}>
               Commander Name:
               <input
@@ -48,8 +49,8 @@ class CommandCardEditor extends React.Component {
                 value={this.state.CommanderName}
                 onChange={this.handleInputChange} />
             </label>
-          </div>
-          <div className="row">
+          </Row>
+          <Row>
             {/* <label hidden={!this.state.isCommander}>
               Commander Image:
               <input
@@ -58,8 +59,8 @@ class CommandCardEditor extends React.Component {
                 value={this.state.CommanderImage}
                 onChange={this.handleInputChange} />
             </label> */}
-          </div>
-          <div className="row">
+          </Row>
+          <Row>
             <label>
               Pip Value (0-4):
               <input
@@ -70,8 +71,8 @@ class CommandCardEditor extends React.Component {
                 value={this.state.PipValue}
                 onChange={this.handleInputChange} />
             </label>
-          </div>
-          <div className="row">
+          </Row>
+          <Row>
             <label>
               Card Title:
               <input
@@ -80,8 +81,8 @@ class CommandCardEditor extends React.Component {
                 value={this.state.CardTitle}
                 onChange={this.handleInputChange} />
             </label>
-          </div>
-          <div className="row">
+          </Row>
+          <Row>
             <label>
               Orders:
               <input
@@ -90,8 +91,8 @@ class CommandCardEditor extends React.Component {
                 value={this.state.Orders}
                 onChange={this.handleInputChange} />
             </label>
-          </div>
-          <div className="row">
+          </Row>
+          <Row>
             <label>
               Ability/Flavor Text:
               <input
@@ -100,9 +101,9 @@ class CommandCardEditor extends React.Component {
                 value={this.state.AbilityText}
                 onChange={this.handleInputChange} />
             </label>
-          </div>
+          </Row>
         </form>
-      </div>
+      </Col>
     );
   }
 }

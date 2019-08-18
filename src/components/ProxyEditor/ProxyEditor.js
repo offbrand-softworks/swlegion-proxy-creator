@@ -2,39 +2,51 @@ import React from 'react';
 import ImageEditor from '../ImageEditor/ImageEditor'
 import '../App/App.css';
 import './ProxyEditor.css';
+import { Container, Row, Col } from 'react-bootstrap';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import Dropdown from 'react-bootstrap/Dropdown';
+import ImageRenderer from '../ImageRenderer/ImageRenderer';
 
 class ProxyEditor extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {cardType: ''}
+  }
+
   render(){
     return(
       <div className="App-content">
-        <div className="container editor-container">
-          <div className="row header-row">
+        <Container className="container editor-container">
+          <Row className="header-row">
             <h1 className="proxy-editor-header">Proxy Editor</h1>
-          </div>
-          <div className="content-row">
-            <div className="col-xs-4 card-renderer-container">
-              <div className="row card-type-dropdown-row">
+          </Row>
+          <Row className="content-row">
+            <Col className="xs=4 card-renderer-container">
+              <Row className="card-type-dropdown-row">
                 <DropdownButton title="Proxy Type" >
-                  <Dropdown.Item onSelect={this.onCardTypeSelect}>Command</Dropdown.Item>
+                  <Dropdown.Item onSelect={() => this.selectCommandCard()}>Command</Dropdown.Item>
+                  <Dropdown.Item onSelect={() => this.selectCard()}>Other</Dropdown.Item>
                 </DropdownButton>
-              </div>
-              <div className="row renderer">
-                {/*<ImageRenderer></ImageRenderer>*/}
-              </div>
-            </div>
-            <div className="col-xs-12 editor-fields">
-                <ImageEditor />
-            </div>
-          </div>
-        </div>
+              </Row>
+              <Row className="renderer">
+                <ImageRenderer cardType={this.state.cardType}/>
+              </Row>
+            </Col>
+            <Col className="xs=8 editor-fields">
+                <ImageEditor cardType={this.state.cardType}/>
+            </Col>
+          </Row>
+        </Container>
       </div>
     )
   }
 
-  onCardTypeSelect(){
-    console.log("card type dropdown selected")
+  selectCommandCard(){
+    this.setState({cardType: 'COMMAND'});
+  }
+
+  selectCard(){//TODO: This is placeholder
+    this.setState({cardType: 'OTHER'});
   }
 }
 
