@@ -15,29 +15,27 @@ class ProxyEditor extends React.Component {
 
   render(){
     return(
-      <div className="App-content">
-        <Container className="container editor-container">
-          <Row className="header-row">
-            <h1 className="proxy-editor-header">Proxy Editor</h1>
-          </Row>
-          <Row className="content-row">
-            <Col className="xs=4 card-renderer-container">
-              <Row className="card-type-dropdown-row">
-                <DropdownButton title="Proxy Type" >
-                  <Dropdown.Item onSelect={() => this.selectCommandCard()}>Command</Dropdown.Item>
-                  <Dropdown.Item onSelect={() => this.selectCard()}>Other</Dropdown.Item>
-                </DropdownButton>
-              </Row>
-              <Row className="renderer">
-                <ImageRenderer cardType={this.state.cardType}/>
-              </Row>
-            </Col>
-            <Col className="xs=8 editor-fields">
-                <ImageEditor cardType={this.state.cardType}/>
-            </Col>
-          </Row>
-        </Container>
-      </div>
+      <Container className="container editor-container">
+        <Row className="header-row">
+          <h1 className="proxy-editor-header">Proxy Editor</h1>
+        </Row>
+        <Row className="content-row">
+          <Col xs="4" className="card-renderer-container">
+            <Row className="card-type-dropdown-row">
+              <DropdownButton title="Proxy Type" >
+                <Dropdown.Item onSelect={() => this.selectCommandCard()}>Command</Dropdown.Item>
+                <Dropdown.Item onSelect={() => this.selectCard()}>Other</Dropdown.Item>
+              </DropdownButton>
+            </Row>
+            <Row className="renderer">
+              <ImageRenderer cardType={this.state.cardType}/>
+            </Row>
+          </Col>
+          <Col xs="8" className="editor-fields">
+              <ImageEditor cardType={this.state.cardType}/>
+          </Col>
+        </Row>
+      </Container>
     )
   }
 
