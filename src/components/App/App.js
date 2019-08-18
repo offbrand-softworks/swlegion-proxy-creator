@@ -5,30 +5,34 @@ import Menu from '../Menu/Menu.js';
 import Home from '../Home/Home.js';
 import ProxyEditor from '../ProxyEditor/ProxyEditor.js';
 
-function App() {
+
+class App extends React.Component {
+  
+  render() {
     return (
-    <Router>
-      <div className="App">
-        <Menu />
-        <Route exact path="/" component={HomeComponent} />
-        <Route path="/proxy-editor" component={ProxyEditorComponent} />
-        {/* <Route path="/about" component={About} />
+      <Router>
+        <div className="App">
+          <Menu />
+          <Route exact path="/" component={this.HomeComponent} />
+          <Route path="/proxy-editor" component={this.ProxyEditorComponent} />
+          {/* <Route path="/about" component={About} />
         <Route path="/topics" component={Topics} /> */}
-      </div>
-    </Router>
+        </div>
+      </Router>
     );
-}
+  }
 
-function HomeComponent() {
-  return(
-    <Home />
-  );
-}
+  HomeComponent() {
+    return(
+      <Home />
+    );
+  }
 
-function ProxyEditorComponent() {
-  return(
-    <ProxyEditor />
-  )
+  ProxyEditorComponent() {
+    return(
+      <ProxyEditor />
+    )
+  }
 }
 
 export default App;
