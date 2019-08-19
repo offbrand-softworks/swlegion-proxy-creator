@@ -1,4 +1,6 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { saveCommandCardConfig } from "../../../redux/actions/commandCardActions";
 import { Container, Col, Row } from 'react-bootstrap'
 import './CommandCardEditor.css';
 
@@ -24,6 +26,10 @@ class CommandCardEditor extends React.Component {
     this.setState({
       [name]: value
     });
+  }
+
+  saveCommandCardConfig(){
+    this.props.saveCommandCardConfig(this.state);//Dispatches updated editor configuration to redux state;
   }
 
   render() {
@@ -104,10 +110,14 @@ class CommandCardEditor extends React.Component {
               </label>
             </Row>
           </form>
+
+          <Row>
+             <button onClick={() => this.saveCommandCardConfig()}>Submit</button>
+          </Row>
         </Col>
       </Container>
     );
   }
 }
 
-export default CommandCardEditor;
+export default connect(null, { saveCommandCardConfig })(CommandCardEditor);
