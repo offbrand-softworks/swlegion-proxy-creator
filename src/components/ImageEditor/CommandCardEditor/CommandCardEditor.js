@@ -113,10 +113,6 @@ class CommandCardEditor extends React.Component {
               </label>
             </Row>
           </form>
-
-          {/*<Row>*/}
-             {/*<button onClick={() => this.saveCommandCardConfig()}>Submit</button>*/}
-          {/*</Row>*/}
         </Col>
       </Container>
     );
