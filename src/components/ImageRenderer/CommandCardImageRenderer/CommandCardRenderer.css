@@ -1,0 +1,131 @@
+@font-face {
+  font-family: 'Mandatory';
+  src: local('Mandatory'), url(../../../assets/fonts/MANDATOR.ttf) format('truetype');
+}
+
+.cardRender {
+  position: relative;
+  border-style: solid;
+  border-color: transparent;
+  z-index: 1;
+}
+.template {
+  position: relative;
+  width: 100%;
+  top: 0%;
+  left: 0%;
+  z-index: 1;
+}
+
+.pipValue {
+  position: absolute;
+  width: 13%;
+  top: 0%;
+  left: 0%;
+  z-index: 2;
+}
+
+.cardTitleContainer {
+  position: absolute;
+  border-style: solid;
+  border-color: transparent;
+  height: 7%;
+  width: 65%;
+  top: 3%;
+  left: 14%;
+  z-index: 2;
+  text-align: center;
+}
+
+.cardTitleText {
+  font-family: 'Mandatory';
+  font-size: 100%;
+  color: black;
+  z-index: 2;
+}
+
+.cardOrdersContainer {
+  position: absolute;
+  border-style: solid;
+  border-color: transparent;
+  height: 5%;
+  width: 50%;
+  top: 58%;
+  left: 25%;
+  z-index: 2;
+}
+
+.cardOrdersText {
+  font-family: 'Mandatory';
+  font-size: 75%;
+  color: black;
+  z-index: 2;
+}
+
+.commanderNameContainer {
+  position: absolute;
+  border-style: solid;
+  border-color: transparent;
+  height: 5%;
+  width: 35%;
+  top: 8.5%;
+  left: 45%;
+  z-index: 2;
+}
+
+.commanderNameText {
+  font-family: 'Times New Roman', Times, serif;
+  color: black;
+  font-size: 75%;
+}
+
+.cardFlavorContainer {
+  position: absolute;
+  border-style: solid;
+  border-color: transparent;
+  height: 30%;
+  width: 85%;
+  top: 66%;
+  left: 7%;
+  z-index: 2;
+}
+
+.cardFlavorText {
+  position: relative;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 100%;
+  color: black;
+  vertical-align: middle;
+  display: table-cell;
+}
+
+.cardImageContainer {
+  position: absolute;
+  border-style: solid;
+  border-color: purple;
+  height: 51%;
+  top: 10%;
+  left: 0%;
+  z-index: 0;
+}
+
+.cardImage {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+.commanderImageContainer {
+  position: absolute;
+  height: 15%;
+  width: 20%;
+  top: 0%;
+  right: 0%;
+  z-index: 0;
+}
+
+.commanderImage {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}

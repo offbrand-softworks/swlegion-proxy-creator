@@ -1,5 +1,5 @@
 import React from 'react';
-import smuggler from '../../images/general/smuggler.png';
+import smuggler from '../../assets/images/general/smuggler.png';
 
 class Home extends React.Component {
   render() {
