@@ -27,6 +27,9 @@ class CommandCardEditor extends React.Component {
       [name]: value
     });
   }
+  componentDidUpdate(){
+    this.saveCommandCardConfig();
+  }
 
   saveCommandCardConfig(){
     this.props.saveCommandCardConfig(this.state);//Dispatches updated editor configuration to redux state;
@@ -111,9 +114,9 @@ class CommandCardEditor extends React.Component {
             </Row>
           </form>
 
-          <Row>
-             <button onClick={() => this.saveCommandCardConfig()}>Submit</button>
-          </Row>
+          {/*<Row>*/}
+             {/*<button onClick={() => this.saveCommandCardConfig()}>Submit</button>*/}
+          {/*</Row>*/}
         </Col>
       </Container>
     );
