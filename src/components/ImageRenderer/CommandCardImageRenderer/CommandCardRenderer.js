@@ -11,7 +11,7 @@ import commanderTemplate from '../../../assets/images/command/commanderTemplate.
 
 class CommandCardRenderer extends React.Component{
   constructor(props){
-    super(props)
+    super(props);
     this.pipValueMap = {
       1: onePip,
       2: twoPip,
@@ -19,15 +19,11 @@ class CommandCardRenderer extends React.Component{
       4: fourPip
     }
   }
-  //This will run when our config state is updated from the editor.
-  componentWillReceiveProps(nextProps){
-    console.log(nextProps.config);
-  }
 
   getCommandCardTemplate(){
    return this.props.config.isCommander
       ? <img className="template" id="commanderTemplate" src={commanderTemplate} alt="commanderTemplate"/>
-      :  "";
+      :  <div className="emptyContents">No Card Template selected.</div>;
   }
 
   renderCommanderNameIfApplicable(){
@@ -41,16 +37,17 @@ class CommandCardRenderer extends React.Component{
   }
 
   renderPipValue(){
-    return <img className="pipValue" id="image" src={this.pipValueMap[this.props.config.PipValue]} alt="pipValue"/>
+    return <img className="pipValue" id="image" src={this.pipValueMap[this.props.config.PipValue]}/>
   }
 
   render(){
     return (
       <Container>
         <Row className="headerRow">
-          <Col xs="12">Command Card Renderer</Col>
+          <Col xs="12">Command Card</Col>
         </Row>
         <Row className="contentRow">
+
           <Col xs="12">
             <div className="cardRender">
               {this.getCommandCardTemplate()}
