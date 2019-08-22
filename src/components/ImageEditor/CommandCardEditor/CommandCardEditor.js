@@ -1,16 +1,26 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { saveCommandCardConfig } from "../../../redux/actions/commandCardActions";
-import { Container, Col, Row } from 'react-bootstrap'
+import { Container, Col, Row, Form, FormCheck } from 'react-bootstrap'
 import './CommandCardEditor.css';
 
 class CommandCardEditor extends React.Component {
   constructor(props){
     super(props);
+    this.commanderCheck = React.createRef();
+    this.nameInput = React.createRef();
+    this.onePipRadio = React.createRef();
+    this.twoPipRadio = React.createRef();
+    this.threePipRadio = React.createRef();
+    this.fourPipRadio = React.createRef();
+    this.titleInput = React.createRef();
+    this.ordersInput = React.createRef();
+    this.abilityTextInput = React.createRef();
+
     this.state = {
       isCommander: false,
       CommanderName: "",
-      PipValue: "",
+      PipValue: 0,
       CardTitle: "",
       Orders: "",
       AbilityText: ""
@@ -18,15 +28,18 @@ class CommandCardEditor extends React.Component {
     this.handleInputChange = this.handleInputChange.bind(this);
 
   }
-  handleInputChange(event) {
-    const target = event.target;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
-    const name = target.name;
-
-    this.setState({
-      [name]: value
-    });
+  handleInputChange() {
+    this.setState({CommanderName: this.nameInput.current.value});
   }
+
+  handleCheckboxUpdate(){
+    if(this.commanderCheck.current.value === 'on' && !this.state.isCommander){
+      this.setState({isCommander: true});
+    } else {
+      this.setState({isCommander: false});
+    }
+  }
+
   componentDidUpdate(){
     this.saveCommandCardConfig();
   }
@@ -35,84 +48,70 @@ class CommandCardEditor extends React.Component {
     this.props.saveCommandCardConfig(this.state);//Dispatches updated editor configuration to redux state;
   }
 
+  selectOnePip(){
+    this._selectPipValue(1, this.onePipRadio);
+  }
+
+  selectTwoPip(){
+    this._selectPipValue(2, this.twoPipRadio);
+  }
+
+  selectThreePip(){
+    this._selectPipValue(3, this.threePipRadio);
+  }
+
+  selectFourPip(){
+    this._selectPipValue(4, this.threePipRadio);
+  }
+
+  _selectPipValue(integerValue, inputRef){
+    if(inputRef.current.value === 'on' && this.state.PipValue !== integerValue){
+      this.setState({PipValue: integerValue});
+    } else {
+      this.setState({PipValue: 0});
+    }
+  }
+
   render() {
     return(
-      <Container>
+      <Container className="editorFormContainer">
         <Col xs="12">
-          <form>
-            <Row>
-              <label>
-                Commander Card:
-                <input
-                  name="isCommander"
-                  type="checkbox"
-                  checked={this.state.isCommander}
-                  onChange={this.handleInputChange} />
-              </label>
-            </Row>
-            <Row hidden={!this.state.isCommander}>
-              <label>
-                Commander Name:
-                <input
-                  name="CommanderName"
-                  type="text"
-                  value={this.state.CommanderName}
-                  onChange={this.handleInputChange} />
-              </label>
-            </Row>
-            <Row>
-              {/* <label hidden={!this.state.isCommander}>
-                Commander Image:
-                <input
-                  name="CommanderImage"
-                  type=""
-                  value={this.state.CommanderImage}
-                  onChange={this.handleInputChange} />
-              </label> */}
-            </Row>
-            <Row>
-              <label>
-                Pip Value (0-4):
-                <input
-                  name="PipValue"
-                  type="number"
-                  min="0"
-                  max="4"
-                  value={this.state.PipValue}
-                  onChange={this.handleInputChange} />
-              </label>
-            </Row>
-            <Row>
-              <label>
-                Card Title:
-                <input
-                  name="CardTitle"
-                  type="text"
-                  value={this.state.CardTitle}
-                  onChange={this.handleInputChange} />
-              </label>
-            </Row>
-            <Row>
-              <label>
-                Orders:
-                <input
-                  name="Orders"
-                  type="text"
-                  value={this.state.Orders}
-                  onChange={this.handleInputChange} />
-              </label>
-            </Row>
-            <Row>
-              <label>
-                Ability/Flavor Text:
-                <input
-                  name="AbilityText"
-                  type="text"
-                  value={this.state.AbilityText}
-                  onChange={this.handleInputChange} />
-              </label>
-            </Row>
-          </form>
+          <Form>
+            <Form.Group>
+              <Form.Check type="checkbox" label="Commander?" ref={this.commanderCheck} checked={this.state.isCommander} onChange={() => this.handleCheckboxUpdate()}/>
+            </Form.Group>
+            <Form.Group hidden={!this.state.isCommander}>
+              <Form.Label>Commander Name</Form.Label>
+              <Form.Control type="text" placeholder="Enter commander name" ref={this.nameInput} onChange={() => this.handleInputChange()}/>
+            </Form.Group>
+            <Form.Group>
+              <Form.Label className="pipgroup-label">Select a Pip Value</Form.Label>
+              <Form.Check inline type="radio" label="1" ref={this.onePipRadio} checked={this.state.PipValue === 1} onChange={() => this.selectOnePip()}/>
+              <Form.Check inline type="radio" label="2" ref={this.twoPipRadio} checked={this.state.PipValue === 2} onChange={() => this.selectTwoPip()}/>
+              <Form.Check inline type="radio" label="3" ref={this.threePipRadio} checked={this.state.PipValue === 3} onChange={() => this.selectThreePip()}/>
+              <Form.Check inline type="radio" label="4" ref={this.fourPipRadio} checked={this.state.PipValue === 4} onChange={() => this.selectFourPip()}/>
+            </Form.Group>
+            {/* <label hidden={!this.state.isCommander}>
+              Commander Image:
+              <input
+                name="CommanderImage"
+                type=""
+                value={this.state.CommanderImage}
+                onChange={this.handleInputChange} />
+            </label> */}
+            <Form.Group>
+              <Form.Label>Card Title</Form.Label>
+              <Form.Control type="text" placeholder="Enter a title for your card" ref={this.titleInput} onChange={() => this.setState({CardTitle: this.titleInput.current.value})}/>
+            </Form.Group>
+            <Form.Group>
+              <Form.Label>Orders</Form.Label>
+              <Form.Control type="text" placeholder="Enter the card's orders" ref={this.ordersInput} onChange={() => this.setState({Orders: this.ordersInput.current.value})}/>
+            </Form.Group>
+            <Form.Group>
+              <Form.Label>Flavor Text</Form.Label>
+              <Form.Control as="textarea" rows="3" placeholder="Enter your card's flavor text" ref={this.abilityTextInput} onChange={() => this.setState({AbilityText: this.abilityTextInput.current.value})}/>
+            </Form.Group>
+          </Form>
         </Col>
       </Container>
     );
