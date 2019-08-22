@@ -25,11 +25,7 @@ class CommandCardEditor extends React.Component {
       Orders: "",
       AbilityText: ""
     };
-    this.handleInputChange = this.handleInputChange.bind(this);
 
-  }
-  handleInputChange() {
-    this.setState({CommanderName: this.nameInput.current.value});
   }
 
   handleCheckboxUpdate(){
@@ -46,22 +42,6 @@ class CommandCardEditor extends React.Component {
 
   saveCommandCardConfig(){
     this.props.saveCommandCardConfig(this.state);//Dispatches updated editor configuration to redux state;
-  }
-
-  selectOnePip(){
-    this._selectPipValue(1, this.onePipRadio);
-  }
-
-  selectTwoPip(){
-    this._selectPipValue(2, this.twoPipRadio);
-  }
-
-  selectThreePip(){
-    this._selectPipValue(3, this.threePipRadio);
-  }
-
-  selectFourPip(){
-    this._selectPipValue(4, this.threePipRadio);
   }
 
   _selectPipValue(integerValue, inputRef){
@@ -82,14 +62,14 @@ class CommandCardEditor extends React.Component {
             </Form.Group>
             <Form.Group hidden={!this.state.isCommander}>
               <Form.Label>Commander Name</Form.Label>
-              <Form.Control type="text" placeholder="Enter commander name" ref={this.nameInput} onChange={() => this.handleInputChange()}/>
+              <Form.Control type="text" placeholder="Enter commander name" ref={this.nameInput} onChange={() => this.setState({CommanderName: this.nameInput.current.value})}/>
             </Form.Group>
             <Form.Group>
               <Form.Label className="pipgroup-label">Select a Pip Value</Form.Label>
-              <Form.Check inline type="radio" label="1" ref={this.onePipRadio} checked={this.state.PipValue === 1} onChange={() => this.selectOnePip()}/>
-              <Form.Check inline type="radio" label="2" ref={this.twoPipRadio} checked={this.state.PipValue === 2} onChange={() => this.selectTwoPip()}/>
-              <Form.Check inline type="radio" label="3" ref={this.threePipRadio} checked={this.state.PipValue === 3} onChange={() => this.selectThreePip()}/>
-              <Form.Check inline type="radio" label="4" ref={this.fourPipRadio} checked={this.state.PipValue === 4} onChange={() => this.selectFourPip()}/>
+              <Form.Check inline type="radio" label="1" ref={this.onePipRadio} checked={this.state.PipValue === 1} onChange={() => this._selectPipValue(1, this.onePipRadio)}/>
+              <Form.Check inline type="radio" label="2" ref={this.twoPipRadio} checked={this.state.PipValue === 2} onChange={() => this._selectPipValue(2, this.twoPipRadio)}/>
+              <Form.Check inline type="radio" label="3" ref={this.threePipRadio} checked={this.state.PipValue === 3} onChange={() => this._selectPipValue(3, this.threePipRadio)}/>
+              <Form.Check inline type="radio" label="4" ref={this.fourPipRadio} checked={this.state.PipValue === 4} onChange={() => this._selectPipValue(4, this.threePipRadio)}/>
             </Form.Group>
             {/* <label hidden={!this.state.isCommander}>
               Commander Image:
