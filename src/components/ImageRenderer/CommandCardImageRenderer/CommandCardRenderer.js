@@ -8,6 +8,7 @@ import twoPip from '../../../assets/images/command/2pip.png';
 import threePip from '../../../assets/images/command/3pip.png';
 import fourPip from '../../../assets/images/command/4pip.png';
 import commanderTemplate from '../../../assets/images/command/commanderTemplate.png';
+import commandTemplate from '../../../assets/images/command/commandTemplate.png';
 
 class CommandCardRenderer extends React.Component{
   constructor(props){
@@ -23,14 +24,49 @@ class CommandCardRenderer extends React.Component{
   getCommandCardTemplate(){
    return this.props.config.isCommander
       ? <img className="template" id="commanderTemplate" src={commanderTemplate} alt="commanderTemplate"/>
-      :  <div className="emptyContents">No Card Template selected.</div>;
+      :  <img className="template" id="commandTemplate" src={commandTemplate} alt="commandTemplate" />;
   }
 
-  renderCommanderNameIfApplicable(){
+  renderSelectiveCardInfo(){
     if(this.props.config.isCommander){
       return (
-        <div className="commanderNameContainer">
-          <p className="commanderNameText">{this.props.config.CommanderName}</p>
+        <div>
+          <div className="commanderImageContainer">
+            <img className="commanderImage" src={this.props.config.CommanderImage} alt=""/>
+          </div>
+          <div className="commanderNameContainer">
+            <p className="commanderNameText">{this.props.config.CommanderName}</p>
+          </div>
+          <div className="commanderCardImageContainer">
+            <img className="cardImage" id="cardImage" src={this.props.config.CardImage} alt=""/>
+          </div>
+          <div className="commanderCardTitleContainer">
+            <p className="cardTitleText">{this.props.config.CardTitle}</p>
+          </div>
+          <div className="commanderCardOrdersContainer">
+            <p className="cardOrdersText">{this.props.config.Orders}</p>
+          </div>
+          <div className="commanderCardFlavorContainer">
+            <p className="cardFlavorText">{this.props.config.AbilityText}</p>
+          </div>
+        </div>
+      )
+    }
+    else{
+      return (
+        <div>
+          <div className="cardImageContainer">
+            <img className="cardImage" id="cardImage" src={this.props.config.CardImage} alt=""/>
+          </div>
+          <div className="cardTitleContainer">
+            <p className="cardTitleText">{this.props.config.CardTitle}</p>
+          </div>
+          <div className="cardOrdersContainer">
+            <p className="cardOrdersText">{this.props.config.Orders}</p>
+          </div>
+          <div className="cardFlavorContainer">
+            <p className="cardFlavorText">{this.props.config.AbilityText}</p>
+          </div>
         </div>
       )
     }
@@ -51,23 +87,8 @@ class CommandCardRenderer extends React.Component{
           <Col xs="12">
             <div className="cardRender">
               {this.getCommandCardTemplate()}
-              <div className="cardImageContainer">
-                <img className="cardImage" id="cardImage" src="https://cdn3.movieweb.com/i/article/IHAig79xMJGx985W8gFYok3AkP14or/738:50/Last-Jedi-Darth-Revan-Official-Star-Wars-Canon.jpg" alt="revan"/>
-              </div>
-              <div className="commanderImageContainer">
-                <img className="commanderImage" src="https://media.tenor.com/images/8b6056754067f72ea2bb781fa979fcce/tenor.png" alt="revanagain"/>
-              </div>
-              {this.renderCommanderNameIfApplicable()}
+              {this.renderSelectiveCardInfo()}
               {this.renderPipValue()}
-              <div className="cardTitleContainer">
-                <p className="cardTitleText">{this.props.config.CardTitle}</p>
-              </div>
-              <div className="cardOrdersContainer">
-                <p className="cardOrdersText">{this.props.config.Orders}</p>
-              </div>
-              <div className="cardFlavorContainer">
-                <p className="cardFlavorText">{this.props.config.AbilityText}</p>
-              </div>
             </div>
           </Col>
         </Row>

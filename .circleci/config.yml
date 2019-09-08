@@ -1,10 +1,6 @@
-# Javascript Node CircleCI 2.0 configuration file
-#
-# Check https://circleci.com/docs/2.0/language-javascript/ for more details
-#
 version: 2
 jobs:
-  build:
+  test:
     docker:
       # specify the version you desire here
       - image: circleci/node:11.6.0
@@ -37,3 +33,22 @@ jobs:
       - run:
           name: test
           command: npm test
+
+  build:
+    machine: true
+    steps:
+      - checkout
+      - run: make buildProd
+
+workflows:
+  version: 2
+  build-deploy:
+    jobs:
+      - test
+      - build
+      # - build-deploy-prod:
+      #     requires:
+      #       - build
+      #     filters:
+      #       branches:
+      #         only: master

@@ -5,7 +5,7 @@ import './ProxyEditor.css';
 import { Container, Row, Col } from 'react-bootstrap';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import Dropdown from 'react-bootstrap/Dropdown';
-import ImageRenderer from '../ImageRenderer/ImageRenderer';
+import PrintableImageRenderer from '../ImageRenderer/ImageRenderer';
 
 class ProxyEditor extends React.Component {
   constructor(props){
@@ -28,7 +28,7 @@ class ProxyEditor extends React.Component {
               </DropdownButton>
             </Row>
             <Row className="renderer">
-              <ImageRenderer cardType={this.state.cardType}/>
+              <PrintableImageRenderer cardType={this.state.cardType}/>
             </Row>
           </Col>
           <Col xs="8" className="editor-fields">

@@ -16,10 +16,13 @@ class CommandCardEditor extends React.Component {
     this.titleInput = React.createRef();
     this.ordersInput = React.createRef();
     this.abilityTextInput = React.createRef();
+    this.commanderImageInput = React.createRef();
+    this.cardImageInput = React.createRef();
 
     this.state = {
       isCommander: false,
       CommanderName: "",
+      CommanderImage: "",
       PipValue: 0,
       CardTitle: "",
       Orders: "",
@@ -64,6 +67,10 @@ class CommandCardEditor extends React.Component {
               <Form.Label>Commander Name</Form.Label>
               <Form.Control type="text" placeholder="Enter commander name" ref={this.nameInput} onChange={() => this.setState({CommanderName: this.nameInput.current.value})}/>
             </Form.Group>
+            <Form.Group hidden={!this.state.isCommander}>
+              <Form.Label>Commander Image</Form.Label>
+              <Form.Control type="text" placeholder="Link to commander image" ref={this.commanderImageInput} onChange={() => this.setState({CommanderImage: this.commanderImageInput.current.value})}/>
+            </Form.Group>
             <Form.Group>
               <Form.Label className="pipgroup-label">Select a Pip Value</Form.Label>
               <Form.Check inline type="radio" label="1" ref={this.onePipRadio} checked={this.state.PipValue === 1} onChange={() => this._selectPipValue(1, this.onePipRadio)}/>
@@ -82,6 +89,10 @@ class CommandCardEditor extends React.Component {
             <Form.Group>
               <Form.Label>Card Title</Form.Label>
               <Form.Control type="text" placeholder="Enter a title for your card" ref={this.titleInput} onChange={() => this.setState({CardTitle: this.titleInput.current.value})}/>
+            </Form.Group>
+            <Form.Group>
+              <Form.Label>Card Image</Form.Label>
+              <Form.Control type="text" placeholder="Link to card image" ref={this.cardImageInput} onChange={() => this.setState({CardImage: this.cardImageInput.current.value})}/>
             </Form.Group>
             <Form.Group>
               <Form.Label>Orders</Form.Label>
