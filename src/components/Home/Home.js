@@ -7,7 +7,7 @@ class Home extends React.Component {
       <header className="App-content">
           <img src={smuggler} alt="logo" />
           <p>
-            Welcome, smuggler. <br/>
+            Welcome, smuggler! <br/>
             Let's get started.
           </p>
       </header>

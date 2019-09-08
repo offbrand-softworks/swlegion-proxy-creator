@@ -9,14 +9,13 @@
   text-align: center;
   border-style: solid;
   border-color: transparent;
-  z-index: 1;
 }
 .template {
   position: relative;
   width: 100%;
   top: 0%;
   left: 0%;
-  z-index: 1;
+  z-index: 2;
 }
 
 .pipValue {
@@ -24,18 +23,29 @@
   width: 13%;
   top: 0%;
   left: 0%;
-  z-index: 2;
+  z-index: 3;
+}
+
+.commanderCardTitleContainer {
+  position: absolute;
+  border-style: solid;
+  border-color: transparent;
+  height: 5%;
+  width: 65%;
+  top: 3%;
+  left: 14%;
+  z-index: 3;
 }
 
 .cardTitleContainer {
   position: absolute;
   border-style: solid;
   border-color: transparent;
-  height: 7%;
-  width: 65%;
+  height: 5%;
+  width: 85%;
   top: 3%;
-  left: 14%;
-  z-index: 2;
+  left: 15%;
+  z-index: 3;
 }
 
 .cardTitleText {
@@ -43,7 +53,17 @@
   font-size: 1em;
   line-height: 1em;
   color: black;
-  z-index: 2;
+}
+
+.commanderCardOrdersContainer {
+  position: absolute;
+  border-style: solid;
+  border-color: transparent;
+  height: 5%;
+  width: 50%;
+  top: 59%;
+  left: 25%;
+  z-index: 3;
 }
 
 .cardOrdersContainer {
@@ -52,9 +72,9 @@
   border-color: transparent;
   height: 5%;
   width: 50%;
-  top: 58%;
+  top: 73.5%;
   left: 25%;
-  z-index: 2;
+  z-index: 3; 
 }
 
 .cardOrdersText {
@@ -62,18 +82,17 @@
   font-size: .75em;
   line-height: .75em;
   color: black;
-  z-index: 2;
 }
 
 .commanderNameContainer {
   position: absolute;
   border-style: solid;
   border-color: transparent;
-  height: 5%;
+  height: 4%;
   width: 35%;
-  top: 8.5%;
+  top: 9.5%;
   left: 45%;
-  z-index: 2;
+  z-index: 3;
 }
 
 .commanderNameText {
@@ -83,7 +102,7 @@
   line-height: .75em;
 }
 
-.cardFlavorContainer {
+.commanderCardFlavorContainer {
   position: absolute;
   border-style: solid;
   border-color: transparent;
@@ -91,25 +110,43 @@
   width: 85%;
   top: 66%;
   left: 7%;
-  z-index: 2;
+  z-index: 3;
+}
+
+.cardFlavorContainer {
+  position: absolute;
+  border-style: solid;
+  border-color: transparent;
+  height: 17%;
+  width: 85%;
+  top: 79%;
+  left: 7%;
+  z-index: 3; 
 }
 
 .cardFlavorText {
-  position: relative;
   font-family: 'Times New Roman', Times, serif;
-  font-size: .75em;
-  line-height: .75em;
+  font-size: 1em;
+  line-height: 1em;
   color: black;
-  vertical-align: middle;
-  display: table-cell;
+}
+
+.commanderCardImageContainer {
+  position: absolute;
+  border-style: solid;
+  border-color: transparent;
+  height: 51%;
+  top: 10%;
+  left: 0%;
+  z-index: 0;
 }
 
 .cardImageContainer {
   position: absolute;
   border-style: solid;
-  border-color: purple;
-  height: 51%;
-  top: 10%;
+  border-color: transparent;
+  height: 66%;
+  top: 9.5%;
   left: 0%;
   z-index: 0;
 }
@@ -126,7 +163,7 @@
   width: 20%;
   top: 0%;
   right: 0%;
-  z-index: 0;
+  z-index: 1;
 }
 
 .commanderImage {
