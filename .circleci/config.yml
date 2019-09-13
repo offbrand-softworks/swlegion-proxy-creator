@@ -38,7 +38,7 @@ jobs:
     machine: true
     steps:
       - checkout 
-      - run make buildProd
+      - run: make buildProd
 
   build-deploy-prod:
     machine: true
