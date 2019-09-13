@@ -1,17 +1,23 @@
+URL = ${SERVER_URL}
+IP = ${SERVER_IP}
+USER = ${SERVER_USER}
+
 buildRunDev: buildDev runDev
 
 buildDev:
-	- docker build -t swlegion-proxy-creator:dev .
+	- docker build -t swlegion-card-builder:dev .
 
 runDev:
-	- docker run -v ${PWD}:/app -v /app/node_modules -p 3001:3000 --rm swlegion-proxy-creator:dev
+	- docker run -v ${PWD}:/app -v /app/node_modules -p 3001:3000 --rm swlegion-card-builder:dev
 
-buildRunProd: buildProd runProd
+buildDeployProd: buildProd deployProd
 
 buildProd:
-	- docker build -f Dockerfile-prod -t offbrand/swlegion-card-builder:prod .
+	- sed 's/<url>/${URL}/g' nginx/nginx-template.conf > nginx/nginx.conf
+	- docker build -f Dockerfile-prod -t offbrand/swlegion-card-builder:latest .
 
-runProd:
-	- docker run -it -p 80:80 --rm offbrand/swlegion-card-builder:prod
+deployProd:
+	- docker push offbrand/swlegion-card-builder:latest
+	- ssh ${USER}@${IP} "bash -s" < ./refresh_app.sh
 
 .PHONY: buildDev runDev buildProd runProd
