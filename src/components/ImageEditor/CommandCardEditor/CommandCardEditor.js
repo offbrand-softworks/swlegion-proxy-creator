@@ -21,6 +21,7 @@ class CommandCardEditor extends React.Component {
 
     this.state = {
       isCommander: false,
+      CardImage: "",
       CommanderName: "",
       CommanderImage: "",
       PipValue: 0,
@@ -78,14 +79,6 @@ class CommandCardEditor extends React.Component {
               <Form.Check inline type="radio" label="3" ref={this.threePipRadio} checked={this.state.PipValue === 3} onChange={() => this._selectPipValue(3, this.threePipRadio)}/>
               <Form.Check inline type="radio" label="4" ref={this.fourPipRadio} checked={this.state.PipValue === 4} onChange={() => this._selectPipValue(4, this.threePipRadio)}/>
             </Form.Group>
-            {/* <label hidden={!this.state.isCommander}>
-              Commander Image:
-              <input
-                name="CommanderImage"
-                type=""
-                value={this.state.CommanderImage}
-                onChange={this.handleInputChange} />
-            </label> */}
             <Form.Group>
               <Form.Label>Card Title</Form.Label>
               <Form.Control type="text" placeholder="Enter a title for your card" ref={this.titleInput} onChange={() => this.setState({CardTitle: this.titleInput.current.value})}/>

@@ -24,7 +24,7 @@ class ProxyEditor extends React.Component {
             <Row className="card-type-dropdown-row">
               <DropdownButton title="Proxy Type" >
                 <Dropdown.Item onSelect={() => this.selectCommandCard()}>Command</Dropdown.Item>
-                <Dropdown.Item onSelect={() => this.selectCard()}>Other</Dropdown.Item>
+                <Dropdown.Item onSelect={() => this.selectUnitCard()}>Unit</Dropdown.Item>
               </DropdownButton>
             </Row>
             <Row className="renderer">
@@ -41,6 +41,10 @@ class ProxyEditor extends React.Component {
 
   selectCommandCard(){
     this.setState({cardType: 'COMMAND'});
+  }
+
+  selectUnitCard(){
+    this.setState({cardType: 'UNIT'});
   }
 
   selectCard(){//TODO: This is placeholder
