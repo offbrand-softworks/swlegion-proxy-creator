@@ -37,8 +37,14 @@ jobs:
   build:
     machine: true
     steps:
-      - checkout
+      - checkout 
       - run: make buildProd
+
+  build-deploy-prod:
+    machine: true
+    steps:
+      - checkout
+      - run: make buildDeployProd
 
 workflows:
   version: 2
@@ -46,9 +52,9 @@ workflows:
     jobs:
       - test
       - build
-      # - build-deploy-prod:
-      #     requires:
-      #       - build
-      #     filters:
-      #       branches:
-      #         only: master
+      - build-deploy-prod:
+          requires:
+            - build
+          filters:
+            branches:
+              only: dev
