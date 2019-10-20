@@ -28,22 +28,18 @@
 
 .commanderCardTitleContainer {
   position: absolute;
-  border-style: solid;
-  border-color: transparent;
   height: 5%;
   width: 65%;
-  top: 3%;
+  top: 3.75%;
   left: 14%;
   z-index: 3;
 }
 
 .cardTitleContainer {
   position: absolute;
-  border-style: solid;
-  border-color: transparent;
   height: 5%;
   width: 85%;
-  top: 3%;
+  top: 3.75%;
   left: 15%;
   z-index: 3;
 }
@@ -57,22 +53,18 @@
 
 .commanderCardOrdersContainer {
   position: absolute;
-  border-style: solid;
-  border-color: transparent;
   height: 5%;
   width: 50%;
-  top: 59%;
+  top: 59.5%;
   left: 25%;
   z-index: 3;
 }
 
 .cardOrdersContainer {
   position: absolute;
-  border-style: solid;
-  border-color: transparent;
   height: 5%;
   width: 50%;
-  top: 73.5%;
+  top: 74%;
   left: 25%;
   z-index: 3; 
 }
@@ -86,11 +78,9 @@
 
 .commanderNameContainer {
   position: absolute;
-  border-style: solid;
-  border-color: transparent;
   height: 4%;
   width: 35%;
-  top: 9.5%;
+  top: 10.25%;
   left: 45%;
   z-index: 3;
 }
@@ -104,8 +94,6 @@
 
 .commanderCardFlavorContainer {
   position: absolute;
-  border-style: solid;
-  border-color: transparent;
   height: 30%;
   width: 85%;
   top: 66%;
@@ -115,11 +103,9 @@
 
 .cardFlavorContainer {
   position: absolute;
-  border-style: solid;
-  border-color: transparent;
   height: 17%;
   width: 85%;
-  top: 79%;
+  top: 79.5%;
   left: 7%;
   z-index: 3; 
 }
@@ -133,8 +119,6 @@
 
 .commanderCardImageContainer {
   position: absolute;
-  border-style: solid;
-  border-color: transparent;
   height: 51%;
   top: 10%;
   left: 0%;
@@ -143,8 +127,6 @@
 
 .cardImageContainer {
   position: absolute;
-  border-style: solid;
-  border-color: transparent;
   height: 66%;
   top: 9.5%;
   left: 0%;
@@ -175,8 +157,8 @@
 @media print { 
   /* Styles for this resolution go here */
   .cardRender {
-    height: 336px;
+    height: 332px;
     width: 240px;
-    font-size: 12px;
+    font-size: 10px;
   }
  }
