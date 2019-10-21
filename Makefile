@@ -10,14 +10,15 @@ buildDev:
 runDev:
 	- docker run -v ${PWD}:/app -v /app/node_modules -p 3001:3000 --rm swlegion-card-builder:dev
 
-buildDeployProd: buildProd deployProd
-
 buildProd:
 	- sed 's/<url>/${URL}/g' nginx/nginx-template.conf > nginx/nginx.conf
-	- docker build -f Dockerfile-prod -t offbrand/swlegion-card-builder:latest .
+	- docker build -f Dockerfile-prod -t ${IMAGE_NAME}:latest .
 
 deployProd:
-	- docker push offbrand/swlegion-card-builder:latest
+	- echo "${DOCKERHUB_PASS}" | docker login -u "${DOCKERHUB_USERNAME}" --password-stdin
+	- docker push ${IMAGE_NAME}:latest
 	- ssh ${USER}@${IP} "bash -s" < ./refresh_app.sh
 
-.PHONY: buildDev runDev buildProd runProd
+buildDeployProd: buildProd deployProd
+
+.PHONY: buildDev runDev buildProd runProd buildDeployProd

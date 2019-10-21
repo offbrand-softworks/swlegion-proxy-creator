@@ -53,6 +53,7 @@ workflows:
       - test
       - build
       - build-deploy-prod:
+          context: swlegion-builder-deployment
           requires:
             - build
           filters:
