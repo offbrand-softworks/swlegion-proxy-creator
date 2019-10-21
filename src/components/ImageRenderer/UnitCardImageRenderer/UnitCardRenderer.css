@@ -1,0 +1,97 @@
+@font-face {
+  font-family: 'Mandatory';
+  src: local('Mandatory'), url(../../../assets/fonts/MANDATOR.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'LegionFont';
+  src: local('LegionFont'), url(../../../assets/fonts/LegionFont.ttf) format('truetype');
+}
+
+.unitCardRender {
+  position: relative;
+  text-align: center;
+}
+
+.unitCardTemplate {
+  position: relative;
+  width: 100%;
+  top: 0%;
+  left: 0%;
+  z-index: 2;
+}
+
+.unitNameContainer {
+  position: absolute;
+  height: 10%;
+  width: 50%;
+  top: 3%;
+  left: 15%;
+  z-index: 3;
+}
+
+.unitNameText {
+  font-family: 'Mandatory';
+  font-size: 1em;
+  line-height: 1em;
+  color: black;
+}
+
+.unitCostContainer {
+  position: absolute;
+  height: 7%;
+  width: 8%;
+  top: 16%;
+  left: 0%;
+  z-index: 3;
+}
+
+.unitCostText {
+  font-family: 'Mandatory';
+  font-size: .5em;
+  line-height: .5em;
+  color: black;
+}
+
+.unitTypeContainer {
+  position: absolute;
+  height: 5%;
+  width: 15%;
+  top: 30%;
+  left: 84%;
+  z-index: 3;
+}
+
+.unitTypeText {
+  font-family: 'Mandatory';
+  font-size: .4em;
+  line-height: .4em;
+  color: white;
+}
+
+.unitRankContainer {
+  position: absolute;
+  height: 3%;
+  width: 5%;
+  top: 3%;
+  left: 71%;
+  z-index: 3;
+}
+
+.unitRankText {
+  font-family: 'LegionFont';
+  font-size: .75em;
+  line-height: .75em;
+  color: white !important;
+}
+
+@media print and (color) { 
+  * {
+    -webkit-print-color-adjust: exact !important;
+  }
+  .unitCardRender {
+    height: 240px;
+    width: 332px;
+    font-size: 14px;
+  }
+}

@@ -1,5 +1,6 @@
 import React from 'react';
 import CommandCardRenderer from './CommandCardImageRenderer/CommandCardRenderer';
+import UnitCardRenderer from './UnitCardImageRenderer/UnitCardRenderer';
 import ReactToPrint from 'react-to-print';
 
 class ImageRenderer extends React.Component{
@@ -17,7 +18,11 @@ class ImageRenderer extends React.Component{
   getCardRenderer(){
     if(this.props.cardType === 'COMMAND'){
       return <CommandCardRenderer/>
-    } else {
+    }
+    if(this.props.cardType === 'UNIT'){
+      return <UnitCardRenderer/>
+    }
+    else {
       return <div>IMAGE RENDERER: {this.props.cardType}</div>
     }
   }

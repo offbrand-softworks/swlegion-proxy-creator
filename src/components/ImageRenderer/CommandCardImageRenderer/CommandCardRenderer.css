@@ -3,13 +3,13 @@
   src: local('Mandatory'), url(../../../assets/fonts/MANDATOR.ttf) format('truetype');
 }
 
-
 .cardRender {
   position: relative;
   text-align: center;
   border-style: solid;
   border-color: transparent;
 }
+
 .template {
   position: relative;
   width: 100%;
